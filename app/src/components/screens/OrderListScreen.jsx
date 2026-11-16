@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,7 +10,7 @@ import { listOrders } from '../../actions/orderAction'
 function OrderListScreen() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [message, setMessage] = useState('')
+    const [, setMessage] = useState('')
 
     const orderList = useSelector((state) => state.orderList)
     const { loading, error, orders } = orderList

@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,7 +10,7 @@ function OrderScreen() {
     const { id } = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [message, setMessage] = useState('')
+    const [, setMessage] = useState('')
 
     const orderDetails = useSelector((state) => state.orderDetails)
     const { order, error, loading } = orderDetails

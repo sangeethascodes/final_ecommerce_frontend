@@ -1,4 +1,3 @@
-import { act } from 'react'
 import {
     PRODUCT_LIST_FAIL,
     PRODUCT_LIST_SUCCESS,

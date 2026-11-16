@@ -1,16 +1,16 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import axios from 'axios';
 import App from './App';
 import store from './store';
 
 jest.mock('axios', () => ({
-  __esModule: true,
-  default: {
-    get: jest.fn(() => Promise.resolve({ data: [] })),
-  },
+  get: jest.fn(),
 }));
 
-test('renders ecommerce home page', () => {
+test('renders ecommerce home page', async () => {
+  axios.get.mockResolvedValue({ data: [] });
+
   render(
     <Provider store={store}>
       <App />
@@ -19,4 +19,9 @@ test('renders ecommerce home page', () => {
 
   const heading = screen.getByRole('heading', { name: /latest products/i });
   expect(heading).toBeInTheDocument();
+
+  await waitFor(() => {
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+  });
 });

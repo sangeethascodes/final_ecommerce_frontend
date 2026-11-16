@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 import Loader from "../Loader"
 import Message from "../Message"
-import { createProduct, deleteProduct, listProductDetails, listProducts } from "../../actions/ProductAction"
+import { createProduct, deleteProduct, listProducts } from "../../actions/ProductAction"
 import { PRODUCT_CREATE_RESET } from "../../constants/productConstants"
 import { useNavigate } from "react-router"
 
@@ -12,8 +12,8 @@ import { useNavigate } from "react-router"
 function ProductListScreen() {
     const dispatch=useDispatch()
     const navigate = useNavigate()
+    const [, setMessage] = useState('')
     const handleClose=()=>setMessage(false)
-    const [message, setMessage] = useState('')
 
     const productsList = useSelector(state=>state.productsList)
     const {loading,error,products} = productsList
@@ -40,7 +40,7 @@ function ProductListScreen() {
         }
 
         dispatch(listProducts())
-    },[dispatch,userInfo,successDelete,successCreate])
+    },[dispatch,userInfo,successDelete,successCreate,createdProduct?._id,navigate])
 
     const createProductHandler=()=>{
         dispatch(createProduct())
