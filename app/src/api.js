@@ -19,7 +19,10 @@ export const getMediaUrl = (url) => {
         return url
     }
 
-    return `${backendBaseUrl}${url.startsWith('/') ? url : `/${url}`}`
+    const filename = url.replace(/\\/g, '/').split('/').pop()
+    const publicFilename = filename.replace(/_[A-Za-z0-9]{7}(?=\.[^.]+$)/, '')
+
+    return `/images/${publicFilename}`
 }
 
 export default axios
