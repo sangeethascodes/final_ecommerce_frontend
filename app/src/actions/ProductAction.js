@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../api'
 import {
     PRODUCT_LIST_FAIL,
     PRODUCT_LIST_SUCCESS,

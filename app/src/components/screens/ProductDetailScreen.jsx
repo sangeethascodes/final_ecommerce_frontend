@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../Loader'
 import Message from '../Message'
 import { listProductDetails } from '../../actions/ProductAction'
+import { getMediaUrl } from '../../api'
 
 function ProductDetailScreen() {
     const { id } = useParams()
@@ -34,7 +35,7 @@ function ProductDetailScreen() {
                 ) : (
                     <Row>
                         <Col md={6}>
-                            <Image src={product.image} alt={product.name} fluid />
+                            <Image src={getMediaUrl(product.image)} alt={product.name} fluid />
                         </Col>
                         <Col md={3}>
                             <ListGroup variant='flush'>

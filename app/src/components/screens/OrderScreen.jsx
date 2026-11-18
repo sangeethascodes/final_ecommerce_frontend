@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../Message'
 import Loader from '../Loader'
 import { getOrderDetails, deliverOrder } from '../../actions/orderAction'
+import { getMediaUrl } from '../../api'
 
 function OrderScreen() {
     const { id } = useParams()
@@ -96,7 +97,7 @@ function OrderScreen() {
                                         <ListGroup.Item key={index}>
                                             <Row>
                                                 <Col md={1}>
-                                                    <Image src={item.image} alt={item.name} fluid rounded />
+                                                    <Image src={getMediaUrl(item.image)} alt={item.name} fluid rounded />
                                                 </Col>
                                                 <Col>
                                                     <Link to={`/product/${item.product}`}>{item.name}</Link>

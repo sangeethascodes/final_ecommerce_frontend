@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import { getMediaUrl } from '../../api'
 
 
 
@@ -12,7 +13,7 @@ function ProductScreen({product}){
         <>
         <Card className="my-3 p-3 rounded">
             <Link to={`/product/${product._id}`}>
-                <Card.Img src={product.image}/>
+                <Card.Img src={getMediaUrl(product.image)}/>
             </Link>
             <Card.Body>
                 <Link to={`/product/${product._id}`}>

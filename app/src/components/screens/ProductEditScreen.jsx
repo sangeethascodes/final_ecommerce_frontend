@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router"
 import Loader from "../Loader"
 import Message from "../Message"
 import FormContainer from "../FormContainer"
-import axios from "axios"
+import axios from "../../api"
 import { listProductDetails, updateProduct } from "../../actions/ProductAction"
 import { PRODUCT_UPDATE_RESET } from "../../constants/productConstants"
 

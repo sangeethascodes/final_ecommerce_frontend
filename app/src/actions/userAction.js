@@ -12,7 +12,7 @@ import {
     USER_PROFILE_UPDATE_REQUEST,
     USER_PROFILE_UPDATE_SUCCESS,
     USER_PROFILE_UPDATE_FAIL} from "../constants/UserConstansts";
-import axios from 'axios'
+import axios from '../api'
 
 export const signup = (fname,lname,email,password)=>async(dispatch)=>{
     try{

@@ -13,6 +13,7 @@ import {
 import Message from "../Message";
 import { addToCart, removeFromCart } from "../../actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
+import { getMediaUrl } from "../../api";
 
 function CartScreen() {
   const { id } = useParams();
@@ -64,7 +65,7 @@ function CartScreen() {
                     <Row>
                       <Col md={2}>
                         <Image
-                          src={item.image}
+                          src={getMediaUrl(item.image)}
                           alt={item.name}
                           fluid
                           rounded

@@ -13,6 +13,7 @@ import CheckoutSteps from "../CheckoutSteps";
 import Message from "../Message";
 import { createOrder } from "../../actions/orderAction";
 import { ORDER_CREATE_RESET } from "../../constants/orderConstants";
+import { getMediaUrl } from "../../api";
 
 function PlaceOrderScreen() {
   const navigate = useNavigate();
@@ -89,7 +90,7 @@ function PlaceOrderScreen() {
                         <Row>
                           <Col md={1}>
                             <Image
-                              src={item.image}
+                              src={getMediaUrl(item.image)}
                               alt={item.name}
                               fluid
                               rounded
